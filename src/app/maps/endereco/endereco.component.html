@@ -1,0 +1,109 @@
+<ngx-loading [show]="loading" ></ngx-loading>
+<div class="endereco">
+  <h2>Poc Uso Maps OpenLayers - Clique no mapa para apresentar o endereço</h2>
+
+  <mat-card colo="primary" style="padding-left: 2%;padding-bottom: 1%; margin-bottom: 1%;">
+    <h3>Endereco</h3>
+    <form [formGroup]="formEndereco">
+
+      <mat-form-field class="custom-form">
+        <mat-label>Endereco</mat-label>
+        <input
+          matInput
+          maxlength="10"
+          name="neighbourhood"
+          formControlName="neighbourhood"
+          placeholder="Endereco"
+          readonly="true"
+        />
+      </mat-form-field>
+
+
+      <mat-form-field class="custom-form">
+        <mat-label>Cidade</mat-label>
+        <input
+          matInput
+          maxlength="10"
+          name="city"
+          formControlName="city"
+          placeholder="Cidade"
+          readonly="true"
+        />
+
+      </mat-form-field>
+
+      <mat-form-field class="custom-form">
+        <mat-label>Municipio</mat-label>
+        <input
+          matInput
+          maxlength="10"
+          name="municipality"
+          formControlName="municipality"
+          placeholder="Municipio"
+          readonly="true"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="custom-form">
+        <mat-label>Distrito</mat-label>
+        <input
+          matInput
+          maxlength="10"
+          name="state_district"
+          formControlName="state_district"
+          placeholder="Distrito"
+          readonly="true"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="custom-form">
+        <mat-label>Estado</mat-label>
+        <input
+          matInput
+          maxlength="10"
+          name="state"
+          formControlName="state"
+          placeholder="Estado"
+          readonly="true"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="custom-form">
+        <mat-label>Cep</mat-label>
+        <input
+          matInput
+          maxlength="10"
+          name="postcode"
+          formControlName="postcode"
+          placeholder="Cep"
+          readonly="true"
+        />
+      </mat-form-field>
+
+
+      <div class="example-button-row">
+        <button mat-raised-button color="warn" (click)="limpaEndereco()">
+          Limpar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+
+
+  <div class="maps">
+
+    <app-maps
+      [lat]="-15.797431"
+      [lon]="-47.877147"
+      [zoom]="16"
+      width="100%"
+      height="800px"
+      (reponseMapEvent)="recebeEndereco($event)"
+    >
+
+    </app-maps>
+
+  </div>
+
+</div>
+
